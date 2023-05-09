@@ -1,0 +1,28 @@
+@use "../../mixins/mixins";
+.descr {
+    @include mixins.animation;
+    line-height: 2;
+    &-text {
+        text-transform: capitalize;
+    }
+    // &-label {
+    //     line-height: 1.5;
+    //     display: grid;
+    //     grid-template-columns: 1em auto;
+    //     gap: 0.5em;
+    // }
+    &-title {
+        display: inline-block;
+        margin-right: var(--margin);
+        color: var(--color-txt-header);
+    }
+    &-error {
+        @include mixins.animation;
+        @include mixins.error;
+    }
+    &-link {
+        @include mixins.link;
+        font-size: 2rem;
+        margin: 0 auto auto;
+    }
+}

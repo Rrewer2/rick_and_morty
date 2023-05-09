@@ -1,0 +1,40 @@
+@use "../../mixins/mixins";
+.navigation {
+    @include mixins.flex-center;
+    height: var(--height-nav);
+    &-button {
+        border: none;
+        background-color: var(--color-bgc-btn);
+        color: var(--color-txt-btn);
+        height: 100%;
+        width: var(--height-nav);
+        border-radius: 10%;
+        cursor: pointer;
+        font-weight: 900;
+        &:hover {
+            background-color: var(--color-txt-btn);
+            color: var(--color-bgc-btn);
+        }
+        &:active {
+            transform: translateY(8%);
+        }
+    }
+    &-page {
+        width: 10%;
+        text-align: center;
+        color: var(--color-txt-char);
+        font-weight: 700;
+    }
+    &-results {
+        text-align: center;
+        color: var(--color-txt-header);
+    }
+    &-form {
+        @include mixins.flex-center;
+        justify-content: space-around;
+        width: 25%;
+        input {
+            width: 20%;
+        }
+    }
+}

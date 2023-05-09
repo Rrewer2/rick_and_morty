@@ -1,0 +1,48 @@
+{
+    "workbench.iconTheme": "vscode-icons",
+    "vsicons.dontShowNewVersionMessage": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash"
+        },
+        "node": {
+            "path": "C:\\WINDOWS\\System32\\cmd.exe",
+            "args": []
+        }
+    },
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "prettier.tabWidth": 4,
+    "editor.accessibilitySupport": "off",
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "terminal.integrated.localEchoStyle": "dim",
+    "explorer.confirmDragAndDrop": false,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "none",
+    "prettier.useEditorConfig": false,
+    "window.zoomLevel": 1,
+    "editor.formatOnSave": true,
+    "editor.autoClosingDelete": "always",
+    "workbench.colorTheme": "Oceanic Next",
+    "terminal.integrated.scrollback": 10000,
+    "editor.fontVariations": false
+}

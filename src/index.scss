@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @keyframes ani {
+        100% {
+            opacity: 1;
+        }
+    }
+    --color-main: rgb(102, 166, 49);
+    --color-second: azure;
+    --color-third: rgb(0, 0, 0, 0.5);
+
+    --color-bgc-body: #cfcfcf;
+    --color-link-hover: var(--color-second);
+
+    --color-bgc-header: var(--color-third);
+    --color-txt-header: var(--color-main);
+
+    --color-bgc-footer: var(--color-bgc-header);
+    --color-txt-footer: var(--color-second);
+
+    --color-bgc-char: var(--color-second);
+    --color-bgc-char-favourite: #dec484;
+    --color-txt-char: black;
+
+    --color-bgc-btn: var(--color-txt-header);
+    --color-txt-btn: var(--color-second);
+
+    --color-txt-error: red;
+    --color-txt-heart: red;
+    // --color-txt-remove: #626262;
+    // --color-txt-remove-hover: black;
+
+    --vt-ani: ani 2s forwards;
+    --vt-trans: all 0.5s;
+
+    --grid-main-col: 75% auto;
+    --grid-info-col: 40% auto;
+    --grid-fav-col: 20% auto;
+
+    --height-header: 10vh;
+    --height-footer: 6vh;
+    --height-main: calc(100vh - var(--height-header) - var(--height-footer));
+    --height-main-padding: 3vh;
+
+    --height-nav: 6vh;
+    --height-list: calc(
+        var(--height-main) - var(--height-nav) - var(--margin) * 2 -
+            var(--height-main-padding) * 2
+    );
+    --margin: 2vh;
+    --height-elem: calc(var(--height-list) / 2 - var(--margin));
+
+    --count: 10;
+    --gap: calc(var(--margin) * 10 / var(--count));
+    --ttt: calc(3 * (100vw - var(--height-main-padding) * 2) / 4);
+    --width: calc(var(--ttt) / var(--count) - var(--gap));
+
+    --font-size: 1.5rem;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+}

@@ -1,0 +1,102 @@
+@use "./mixins/mixins";
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.app {
+    background-color: var(--color-bgc-body);
+    &-header {
+        @include mixins.flex-center;
+        height: var(--height-header);
+        background-color: var(--color-bgc-header);
+    }
+    &-title {
+        font-weight: bold;
+        font-size: calc(var(--height-header) / 2);
+        display: block;
+        text-decoration: none;
+        color: var(--color-txt-header);
+        transition: var(--vt-trans);
+        &:hover {
+            text-decoration: underline;
+            color: var(--color-link-hover);
+        }
+    }
+    &-center {
+        @include mixins.grid;
+    }
+    &-main {
+        @include mixins.grid;
+        grid-template-columns: var(--grid-main-col);
+    }
+    &-info {
+        @include mixins.grid;
+        grid-template-columns: var(--grid-info-col);
+        &-img {
+            @include mixins.animation;
+        }
+    }
+    &-footer {
+        font-size: calc(var(--height-footer) / 2);
+        @include mixins.flex-center;
+        height: var(--height-footer);
+        background-color: var(--color-bgc-footer);
+        color: var(--color-txt-footer);
+    }
+}
+// @media (min-width: 768px) {
+//     .header {
+//         line-height: 1.5;
+//         font-size: 1rem;
+//     }
+// }
+// @media (min-width: 1024px) {
+//     .header {
+//         margin: 0 5rem;
+//     }
+// }
+
+// @media (min-width: 768px) {
+//     .footer {
+//         font-size: 0.75rem;
+//         line-height: 1.5;
+//         font-size: 1rem;
+//     }
+// }
+// @media (min-width: 1024px) {
+//     .footer {
+//         margin: 0 5rem;
+//     }
+// }
+// @media (min-width: 1024px) {
+//     .main {
+//         margin: 1rem 5rem;
+//     }
+// }
+
+// @media (min-width: 640px) {
+//     .chars-wrapper {
+//         width: 75%;
+//         padding-right: 0.5rem;
+//     }
+// }
+// @media (min-width: 1024px) {
+//     .chars-wrapper {
+//         padding-right: 2rem;
+//     }
+// }
+
+// @media (min-width: 640px) {
+//     .fav-find-wraper {
+//         width: 25%;
+//     }
+// }
+
+// @media (min-width: 640px) {
+//     .page-number {
+//         width: 10%;
+//     }
+// }

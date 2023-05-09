@@ -1,0 +1,35 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin grid {
+    padding: var(--height-main-padding);
+    display: grid;
+    column-gap: 2%;
+    min-height: var(--height-main);
+}
+@mixin link {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--color-txt-char);
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+@mixin error {
+    font-weight: bold;
+    font-size: 2rem;
+    margin: auto;
+    color: var(--color-txt-error);
+}
+@mixin animation {
+    opacity: 0;
+    animation: ani 2s forwards;
+}
+@keyframes ani {
+    100% {
+        opacity: 1;
+    }
+}
