@@ -41,6 +41,7 @@ body {
     --grid-main-col: 75% auto;
     --grid-info-col: 40% auto;
     --grid-fav-col: 20% auto;
+    --grid-list-col: 20% 70% auto;
 
     --height-header: 10vh;
     --height-footer: 6vh;
@@ -53,12 +54,17 @@ body {
             var(--height-main-padding) * 2
     );
     --margin: 2vh;
-    --height-elem: calc(var(--height-list) / 2 - var(--margin));
+    --height-elem: calc(
+        var(--height-list) / var(--count) - var(--count) * var(--margin)
+    );
 
-    --count: 10;
+    --count: 4;
     --gap: calc(var(--margin) * 10 / var(--count));
-    --ttt: calc(3 * (100vw - var(--height-main-padding) * 2) / 4);
-    --width: calc(var(--ttt) / var(--count) - var(--gap));
+    --width-main: calc(3 * (100vw - var(--height-main-padding) * 2) / 4);
+    --rrr: var(--count) / (var(--count) + 1);
+    --width: calc(
+        var(--width-main) / var(--count) - var(--rrr) * var(--gap) - 1px
+    );
 
     --font-size: 1.5rem;
 }

@@ -1,41 +1,34 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import useFetch from "../hooks/useFetch";
 import CharList from "../components/charList/CharList";
 import FavList from "../components/favList/FavList";
 import FindChar from "../components/findChar/FindChar";
 import Navigation from "../components/navigation/Navigation";
-import { fetchData } from "../services/functions";
 
 export default function MainPage({ favorites, toggleFavorites }) {
-    const [status, setStatus] = useState("");
-    const [chars, setChars] = useState([]);
-    const [founded, setFounded] = useState([]);
     const [currentPage, setCurPage] = useState(1);
-    const [maxPage, setMaxPage] = useState(42);
+    const [query, setQuery] = useState("");
+    const [pageStatus, pageData] = useFetch("character/?page=", currentPage);
+    const [searchStatus, searchData] = useFetch("character/?name=", query);
 
-    useEffect(() => {
-        const setData = ({ results, info }) => {
-            setChars(results);
-            if (info?.pages && info.pages !== maxPage) setMaxPage(info.pages);
-        };
-        fetchData(
-            `https://rickandmortyapi.com/api/character/?page=${currentPage}`,
-            setStatus,
-            setData
-        );
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [currentPage]);
+    const clearQuery = () => setQuery("");
 
     return (
         <main className="app-main">
-            {FindChar({ setFounded })}
+            {FindChar({ setQuery, clearQuery })}
             <section className="app-characters">
-                {Navigation({ founded, maxPage, currentPage, setCurPage })}
+                {Navigation({
+                    info: searchData?.info,
+                    isSearch: query.length,
+                    maxPage: pageData?.pages ?? 42,
+                    currentPage,
+                    setCurPage,
+                })}
                 {CharList({
-                    chars,
+                    data: query ? searchData : pageData,
+                    clearQuery,
+                    status: query ? searchStatus : pageStatus,
                     favorites,
-                    founded,
-                    setFounded,
-                    status,
                     toggleFavorites,
                 })}
             </section>

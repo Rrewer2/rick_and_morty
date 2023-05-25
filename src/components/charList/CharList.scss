@@ -9,26 +9,44 @@
     row-gap: var(--margin);
 }
 .character {
-    @include mixins.animation;
-    background-color: var(--color-bgc-char);
-    min-height: var(--height-elem);
     width: var(--width);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-radius: calc(var(--margin) / 2);
+    min-height: var(--height-elem);
+    @include mixins.animation;
+    --sh: calc(var(--margin) / 2);
+    box-shadow: var(--sh) var(--sh) var(--sh) rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-columns: var(--grid-list-col);
+    align-items: center;
     &-img {
-        height: var(--width);
+        // width: var(--width);
         img {
-            height: 100%;
+            display: block;
             width: 100%;
             border-radius: calc(var(--margin) / 2);
         }
     }
+    // background-color: var(--color-bgc-char);
+    // width: var(--width);
+    // text-align: center;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+    // border-radius: calc(var(--margin) / 2);
+    // &-img {
+    //     height: var(--width);
+    //     img {
+    //         height: 100%;
+    //         width: 100%;
+    //         border-radius: calc(var(--margin) / 2);
+    //     }
+    // }
     &-name {
         @include mixins.link;
+        // display: block;
         font-size: calc(var(--font-size) / 2);
+        p {
+            width: 100%;
+        }
     }
     &-heart {
         transition: var(--vt-trans);

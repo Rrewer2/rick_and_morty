@@ -5,36 +5,35 @@ import { heart } from "../../services/svgs";
 import "./CharList.scss";
 
 export default function CharList({
-    chars,
-    founded,
+    data,
+    clearQuery,
+    status,
     favorites,
     toggleFavorites,
-    setFounded,
-    status,
 }) {
-    const items = !founded || founded.length ? founded : chars;
-
-    const notFound = () => (
-        <>
-            <h2 className="search-error">{"No characters found :("}</h2>
-            <button
-                className="search-input-cleans"
-                onClick={() => setFounded([])}
-            >
+    const items = data?.results;
+    const error = data?.error;
+    const findError = (msg) => (
+        <div>
+            <h2 className="search-error">{msg}</h2>
+            <button className="search-input-cleans" onClick={clearQuery}>
                 Back
             </button>
-        </>
+        </div>
     );
     return (
         <article className="wrapper">
+            {error && findError(error)}
             {status === "loading" && <Spinner />}
             {status === "error" && (
-                <h1 className="search-error">Nothing found</h1>
+                <h2 className="search-error">Error Internet connection</h2>
             )}
             {!status &&
                 items?.length &&
                 charsRender(items, favorites, toggleFavorites)}
-            {!status && !items && notFound()}
+            {!status && !items?.length && !error && (
+                <h2 className="search-error">Nothing found</h2>
+            )}
         </article>
     );
 }
@@ -51,12 +50,11 @@ const charsRender = (array, favorites, toggleFavorites) =>
                 </div>
 
                 <Link className="character-name" to={`/characters/${id}`}>
-                    <p>{name}</p>
+                    <h3>{name}</h3>
                 </Link>
                 <span
                     onClick={() => toggleFavorites(obj)}
                     className="character-heart"
-                    // className={`character-heart${isFav ? "-fav" : ""}`}
                 >
                     {heart(color)}
                 </span>

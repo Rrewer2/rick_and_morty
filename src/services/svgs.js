@@ -37,13 +37,13 @@ export const x = (
 );
 export const heart = (color) => (
     <svg
-        width="32"
-        height="32"
+        width="16"
+        height="16"
         xmlns="http://www.w3.org/2000/svg"
         transition="all 1s"
     >
-        <circle cx="12.8" cy="16" r="5.76" fill={color} />
-        <circle cx="19.2" cy="16" r="5.76" fill={color} />
-        <path d="M7.88,19.2 L24,19.2 16.12,27.2 Z" fill={color} />
+        <circle cx="6.4" cy="8" r="2.88" fill={color} />
+        <circle cx="9.6" cy="8" r="2.88" fill={color} />
+        <path d="M3.94,9.6 L12,9.6 8.06,13.6 Z" fill={color} />
     </svg>
 );

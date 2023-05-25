@@ -8,7 +8,11 @@ export default function FavList({ toggleFavorites, favorites }) {
         return (
             <div key={id} className="char">
                 <div className="char-wrap">
-                    <img className="char-img" src={image} alt={name} />
+                    <img
+                        className="char-img"
+                        src={image}
+                        alt={`${name.slice(0, 10)}...`}
+                    />
                     <span
                         className="char-x"
                         onClick={() => toggleFavorites(obj)}
@@ -22,6 +26,7 @@ export default function FavList({ toggleFavorites, favorites }) {
             </div>
         );
     });
+
     return (
         <article className="favourites">
             <h3 className="favourites-title">Favorites</h3>

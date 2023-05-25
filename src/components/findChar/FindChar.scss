@@ -1,19 +1,14 @@
 .search {
-    position: absolute;
-    top: 2vh;
-    right: 2vh;
-    // &-title {
-    //     text-align: center;
-    //     margin-top: 1rem;
-    // color: var(--color-txt-header);
-    // }
     &-form {
-        width: 100%;
+        position: absolute;
+        top: 2vh;
+        right: 2vh;
         display: flex;
         align-items: center;
         justify-content: right;
     }
     &-input {
+        height: 5vh;
         width: 0%;
         opacity: 0;
         padding: 0.3rem;
@@ -29,7 +24,29 @@
             border-color: var(--color-bgc-btn);
         }
         &-find {
-            // border-radius: 50%;
+            background-color: var(--color-bgc-btn);
+            cursor: pointer;
+            transition: all 0.3s;
+            &:hover {
+                background-color: #fff;
+            }
+        }
+    }
+    &-clean {
+        opacity: 0;
+        &-visible {
+            width: 5vh;
+            height: 5vh;
+            cursor: pointer;
+            position: absolute;
+            right: 5vh;
+            border-radius: 50%;
+            opacity: 1;
+            border: none;
+            font-size: 1.5rem;
+            &:hover {
+                background-color: #fff;
+            }
         }
     }
 }
@@ -42,7 +59,7 @@
     animation: fadeIn 1s forwards;
 }
 .hidden {
-    animation: fadeOut 1s forwards;
+    animation: fadeOut 2s forwards;
 }
 @keyframes fadeIn {
     100% {

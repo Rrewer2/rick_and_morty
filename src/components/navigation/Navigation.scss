@@ -3,21 +3,10 @@
     @include mixins.flex-center;
     height: var(--height-nav);
     &-button {
-        border: none;
-        background-color: var(--color-bgc-btn);
-        color: var(--color-txt-btn);
+        @include mixins.button;
         height: 100%;
         width: var(--height-nav);
-        border-radius: 10%;
-        cursor: pointer;
         font-weight: 900;
-        &:hover {
-            background-color: var(--color-txt-btn);
-            color: var(--color-bgc-btn);
-        }
-        &:active {
-            transform: translateY(8%);
-        }
     }
     &-page {
         width: 10%;
@@ -31,10 +20,16 @@
     }
     &-form {
         @include mixins.flex-center;
-        justify-content: space-around;
+        justify-content: center;
         width: 25%;
         input {
+            margin-left: var(--margin);
             width: 20%;
+        }
+        &-button {
+            @include mixins.button;
+            padding: calc(var(--margin) / 2);
+            font-weight: 700;
         }
     }
 }

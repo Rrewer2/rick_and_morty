@@ -1,11 +1,14 @@
+import { useState } from "react";
 import "./Navigation.scss";
 
 export default function Navigation({
-    founded,
+    info,
+    isSearch,
     maxPage,
     currentPage,
     setCurPage,
 }) {
+    const [value, setValue] = useState(1);
     const nextPage = () =>
         setCurPage(currentPage === maxPage ? 1 : currentPage + 1);
 
@@ -14,12 +17,23 @@ export default function Navigation({
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setCurPage(+event.target[0].value);
+        setCurPage(value);
     };
 
-    return founded?.length ? (
-        <h3 className="navigation-results">Search results:</h3>
-    ) : (
+    const handleChange = (e) => {
+        const newValue = +e.target.value;
+        if (newValue > maxPage || newValue < 1) return;
+        setValue(newValue);
+    };
+
+    if (isSearch) {
+        return (
+            <h3 className="navigation-results">
+                Search results: {info?.count ? `${info.count} found` : ""}
+            </h3>
+        );
+    }
+    return (
         <nav className="navigation">
             <button className="navigation-button" onClick={prevPage}>
                 {/* ← */}
@@ -31,8 +45,8 @@ export default function Navigation({
                 {">"}
             </button>
             <form className="navigation-form" onSubmit={handleSubmit}>
-                <p>Go to the page №</p>
-                <input type="number" />
+                <button className="navigation-form-button">To page</button>
+                <input type="number" onChange={handleChange} value={value} />
             </form>
         </nav>
     );

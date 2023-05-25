@@ -33,3 +33,18 @@
         opacity: 1;
     }
 }
+@mixin button {
+    border: none;
+    background-color: var(--color-bgc-btn);
+    color: var(--color-txt-btn);
+    border-radius: 10%;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+        background-color: var(--color-txt-btn);
+        color: var(--color-bgc-btn);
+    }
+    &:active {
+        transform: translateY(8%);
+    }
+}

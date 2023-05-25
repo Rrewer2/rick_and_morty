@@ -3,20 +3,23 @@ import "./CharInfo.scss";
 
 export default function CharInfo({ char, favorites, toggleFavorites }) {
     return (
-        <div className="descr">
-            {Object.entries(char).map(([key, value]) => (
-                <h2 className="descr-text" key={key}>
-                    {descriptions(key, value)}
-                </h2>
-            ))}
-            <label className="descr-label">
-                <h2 className="descr-title">Favorite</h2>
-                <input
-                    type="checkbox"
-                    checked={isFavourite(char, favorites)}
-                    onChange={() => toggleFavorites(char)}
-                />
-            </label>
+        <div className="app-info">
+            <img className="app-info-img" src={char.image} alt={char.name} />
+            <div className="descr">
+                {Object.entries(char).map(([key, value]) => (
+                    <h2 className="descr-text" key={key}>
+                        {descriptions(key, value)}
+                    </h2>
+                ))}
+                <label className="descr-label">
+                    <h2 className="descr-title">Favorite</h2>
+                    <input
+                        type="checkbox"
+                        checked={isFavourite(char, favorites)}
+                        onChange={() => toggleFavorites(char)}
+                    />
+                </label>
+            </div>
         </div>
     );
 }
